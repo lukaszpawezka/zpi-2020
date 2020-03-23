@@ -24,7 +24,7 @@ public class TilePlacing : MonoBehaviour
 
         if (x + y + z == 0)
         {
-            Debug.Log("PlaceTile");
+            gameObject.name = $"Tile [{x}, {y}, {z}]";
 
             Vector3 position = x * NEVector + y * SEVector;
             transform.position = position;
