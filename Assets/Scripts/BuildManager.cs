@@ -6,8 +6,11 @@ public class BuildManager : MonoBehaviour
 {
     public static BuildManager instance;
     public List<Building> buildingPrefabs;
-
+    //public bool buildModeOn = false;
+    public bool BuildModeOn { get; set; }
     Building buildingToBuild;
+    public Tile tileToBuildOn;
+
     void Awake()
     {
         instance = this;
@@ -33,5 +36,11 @@ public class BuildManager : MonoBehaviour
             tile.Building = newBuilding;
             newBuilding.tile = tile;
         }
+    }
+
+    public void Build()
+    {
+        Build(tileToBuildOn);
+        BuildPanel.instance.gameObject.SetActive(false);
     }
 }

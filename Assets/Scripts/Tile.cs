@@ -38,9 +38,12 @@ public class Tile : MonoBehaviour, IPointerClickHandler
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        Debug.Log($"Click detected");
         // Here Build Manager methods may be handled, ex. if the tile is clicked when the building mode is active -> build building here
-        BuildManager.instance.Build(this);
+        //BuildManager.instance.Build(this);
+        BuildPanel.instance.gameObject.SetActive(true);
+        BuildManager.instance.BuildModeOn = true;
+        BuildManager.instance.SetBuildingToBuild(-1);
+        BuildManager.instance.tileToBuildOn = this;
         //throw new System.NotImplementedException();
     }
 }
