@@ -43,4 +43,13 @@ public class BuildManager : MonoBehaviour
         Build(tileToBuildOn);
         BuildPanel.instance.gameObject.SetActive(false);
     }
+
+    public void Raze()
+    {
+        if (tileToBuildOn.Building != null)
+        {
+            Destroy(tileToBuildOn.Building.gameObject);
+            BuildPanel.instance.gameObject.SetActive(false);
+        }
+    }
 }
