@@ -28,20 +28,28 @@ public class BuildManager : MonoBehaviour
         }
     }
 
-    public void Build(Tile tile)
+    public void SetBuildingToBuild(Building building)
     {
-        if (tile.Building == null && buildingToBuild != null)
+        buildingToBuild = building;
+    }
+
+    public bool Build(Tile tile)
+    {
+        if (tile.Building == null && buildingToBuild != null && tile.tileType == buildingToBuild.tileType)
         {
             Building newBuilding = Instantiate(buildingToBuild, tile.buildingHolder);
             tile.Building = newBuilding;
             newBuilding.tile = tile;
+            return true;
         }
+        return false;
     }
 
     public void Build()
     {
-        Build(tileToBuildOn);
-        BuildPanel.instance.gameObject.SetActive(false);
+        if (Build(tileToBuildOn))
+            //BuildPanel.instance.gameObject.SetActive(false);
+            BuildPanel.instance.Hide();
     }
 
     public void Raze()
@@ -49,7 +57,8 @@ public class BuildManager : MonoBehaviour
         if (tileToBuildOn.Building != null)
         {
             Destroy(tileToBuildOn.Building.gameObject);
-            BuildPanel.instance.gameObject.SetActive(false);
+            //BuildPanel.instance.gameObject.SetActive(false);
+            BuildPanel.instance.Hide();
         }
     }
 }

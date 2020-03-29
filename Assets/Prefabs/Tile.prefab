@@ -80,7 +80,7 @@ MonoBehaviour:
   x: 0
   y: 0
   z: 0
-  tileRadius: 10
+  tileRadius: 5
 --- !u!114 &-6081925945161018113
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -199,7 +199,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Materials.Array.data[0]
       value: 
-      objectReference: {fileID: 10302, guid: 0000000000000000f000000000000000, type: 0}
+      objectReference: {fileID: 2100000, guid: 3c70fad1f0006f04681bfe39c0ce9ac9, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 894fdd29df282834f8a381fe4294052a, type: 3}
 --- !u!4 &6422339965920988642 stripped
